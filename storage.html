@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            /* display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center; */
+        }
+        .inputField{
+            width: 100%;
+            padding: 10px;
+            outline: none;
+            border : 2px solid blueviolet;
+            border-radius: 5px;
+            margin: 20px 10px;
+        }
+        .inputField:focus{
+            border: 2px solid #007ACC;
+            box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+        }
+        .btn{
+            padding: 10px 10px;
+            font-weight: 600;
+            background-color: white;
+            color: blueviolet;
+            border-radius: 5px;
+            border: 2px solid blueviolet;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: all 0.2s;
+        }
+        .btn:hover{
+            background-color: blueviolet;
+            color: white;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td, th{
+            border: 1px solid rgba(83, 42, 42, 0.414);
+            text-align: center;
+            padding: 20px;
+            font-size: 1.5em;
+        }
+        td:nth-child(1){
+            color: #007ACC;
+            font-weight: 600;
+        }
+        tr:nth-child(even){
+            background-color: #ddd;
+        }
+        .productArea{
+            width: 50%;
+            margin: auto;
+            text-align: center;
+        }
+        #table-area{
+            width: 50%;
+            margin: 50px auto;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="productArea">
+        <h1>Welcome to the Shop</h1>
+        <input type="text" name="" id="product" placeholder="Your Product Name Here" class="inputField">
+        <input type="number" name="" id="price" placeholder="Your Product Name Here" class="inputField">
+        <button id="cartBtn" type="button" class="btn">Add To Cart</button>
+        <button id="orderBtn" type="button" class="btn">Order</button>
+    </div>
+    <div id="table-area">
+        <table id="table">
+            <tr>
+                <th>Product Name</th>
+                <th>Product Price</th>            
+            </tr>
+            
+        </table>
+    </div>
+    
+
+
+    <script src="storage.js"></script>
+</body>
+</html>
