@@ -8,21 +8,24 @@
 
 document.getElementById('cartBtn').addEventListener('click', function(){
     validation();
-    showProductHtml();
 })
 
 let validation = () => {
 
-    if(productValue==''){
+    if(!product.value){
         alert('You have not added any product');
         return ;
-    }else if(!priceValue){
+    }else if(!price.value){
         alert('You must provide Price');
         return;
-    }else if(priceValue<0){
+    }else if(price.value<0){
         alert('Minus value is not accepted');
         price.value = '';
         return;
+    }else{
+        showProductHtml();
+        product.value = '';
+        price.value = '';
     }
 }
 const showProductHtml = () => {
