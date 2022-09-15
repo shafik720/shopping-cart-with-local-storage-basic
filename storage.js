@@ -23,7 +23,8 @@ let validation = () => {
         price.value = '';
         return;
     }else{
-        showProductHtml();
+        showProductHtml();        
+        store(product.value);
         product.value = '';
         price.value = '';
     }
@@ -37,4 +38,29 @@ const showProductHtml = () => {
     `;
     table.appendChild(tr);
 
+}
+
+// Working on local storage
+
+const getCart = () => {
+    let cart = localStorage.getItem('cart');
+    let cartObj;
+    if(cart){
+        cartObj = JSON.parse(cart);
+    }else{
+        cartObj = {} ; 
+    }
+    return cartObj;
+}
+console.log(getCart());
+let store = (firstValue) => {
+    let dummy = getCart();
+    
+    if(dummy[firstValue]){
+        dummy[firstValue] = dummy[firstValue] + 1;
+    }else{
+        dummy[firstValue] = 1;
+    }
+    let stringifiedValue = JSON.stringify(dummy);
+    localStorage.setItem('cart', stringifiedValue);
 }
