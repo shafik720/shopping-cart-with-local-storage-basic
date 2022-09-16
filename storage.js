@@ -23,18 +23,18 @@ let validation = () => {
         price.value = '';
         return;
     }else{
-        showProductHtml();        
-        store(product.value);
+        showProductHtml(product.value, price.value);        
+        store(product.value, price.value);
         product.value = '';
         price.value = '';
     }
 }
-const showProductHtml = () => {
+const showProductHtml = (firstValue, secondValue) => {
     document.getElementById('table-area').style.display = 'block';
     let tr = document.createElement('tr');
     tr.innerHTML = `
-    <td>${product.value}</td>
-    <td>${price.value}</td>
+    <td>${firstValue}</td>
+    <td>${secondValue}</td>
     `;
     table.appendChild(tr);
 
@@ -52,15 +52,27 @@ const getCart = () => {
     }
     return cartObj;
 }
-console.log(getCart());
-let store = (firstValue) => {
+
+
+let store = (firstValue, secondValue) => {
     let dummy = getCart();
     
     if(dummy[firstValue]){
-        dummy[firstValue] = dummy[firstValue] + 1;
+        dummy[firstValue] = secondValue;
     }else{
-        dummy[firstValue] = 1;
+        dummy[firstValue] = secondValue;
     }
     let stringifiedValue = JSON.stringify(dummy);
     localStorage.setItem('cart', stringifiedValue);
 }
+
+// show product from local storage
+
+let showFromStorage = () => {
+    let x = getCart();
+    for(let element in x){
+        showProductHtml(element, x[element]);
+    }
+}
+
+showFromStorage();
