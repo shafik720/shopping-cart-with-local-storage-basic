@@ -78,3 +78,7 @@ let showFromStorage = () => {
 showFromStorage();
 
 // clearing data after clicking Place Order button
+let orderDone = () =>{
+    document.getElementById('table-area').textContent = '';    
+    localStorage.removeItem('cart');
+}
