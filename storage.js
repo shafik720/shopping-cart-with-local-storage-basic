@@ -76,3 +76,5 @@ let showFromStorage = () => {
 }
 
 showFromStorage();
+
+// clearing data after clicking Place Order button
